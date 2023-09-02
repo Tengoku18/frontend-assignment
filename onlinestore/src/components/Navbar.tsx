@@ -9,9 +9,7 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 
-type Props = {};
-
-const Navbar = (props: Props) => {
+const Navbar = () => {
   return (
     <div className="w-full  items-center space-y-3 px-3 py-5 bg-[#FFFAFA] flex-row ">
       <div className="flex w-full justify-between">

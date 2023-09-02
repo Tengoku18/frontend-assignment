@@ -1,12 +1,12 @@
 "use client";
 import ProductCard from "@/components/ProductCard";
+import Link from "next/link";
 import React from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 
 const Index = () => {
-  const dispatch = useDispatch();
   const searchedProduct = useSelector(
-    (state) => state.allProducts.searchProduct
+    (state: any) => state.allProducts.searchProduct
   );
   return (
     <div className="min-h-screen px-3 py-5">
@@ -14,13 +14,14 @@ const Index = () => {
         <div className="grid content-center place-content-center grid-cols-auto md:grid-cols-3 gap-4">
           {searchedProduct.map((item: any, i: any) => {
             return (
-              <ProductCard
-                key={i}
-                id={item.id}
-                image={item.image}
-                title={item.title}
-                price={item.price}
-              />
+              <Link key={i} href={`/productdetails/${item.id}`}>
+                <ProductCard
+                  id={item.id}
+                  image={item.image}
+                  title={item.title}
+                  price={item.price}
+                />
+              </Link>
             );
           })}
         </div>
@@ -30,7 +31,7 @@ const Index = () => {
 
           <h3 className="font-bold text-xl">
             {" "}
-            Recommended : gold,laptop,shirt,drive{" "}
+            Recommended Search : gold,laptop,shirt,drive{" "}
           </h3>
         </div>
       )}

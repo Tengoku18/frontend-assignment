@@ -1,6 +1,6 @@
-import Link from "next/link";
+
 import React from "react";
-import { DollarSignIcon, ShoppingCartIcon } from "lucide-react";
+import { ShoppingCartIcon } from "lucide-react";
 import Image from "next/image";
 
 type Props = {
@@ -18,7 +18,7 @@ type Props = {
 
 const ProductCard = ({ id, title, price, image }: Props) => {
   return (
-    <div className="w-full max-w-sm    bg-white border border-gray-200 rounded-sm shadow dark:bg-gray-800 dark:border-gray-700">
+    <div className="w-full max-w-sm  cursor-pointer   bg-white border border-gray-200 rounded-sm shadow dark:bg-gray-800 dark:border-gray-700">
       <Image
         height={300}
         width={400}

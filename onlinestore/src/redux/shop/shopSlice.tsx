@@ -1,8 +1,8 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 
 export interface shopState {
-  products: Array<object>;
-  searchProduct: Array<object>;
+  products: Array<ProductDetail>;
+  searchProduct: Array<ProductDetail>;
 }
 
 const initialState: shopState = {
@@ -25,7 +25,7 @@ export const shopSlice = createSlice({
       console.log("filtered happen", filtered);
       state.searchProduct = filtered;
     },
-    setProducts: (state, action: PayloadAction<Array<object>>) => {
+    setProducts: (state, action: PayloadAction<Array<ProductDetail>>) => {
       state.products = action.payload;
     },
   },

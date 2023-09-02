@@ -1,40 +1,52 @@
 import React from "react";
 
-type Props = {};
+const footerData = [
+  {
+    id: 1,
+    title: "Categories",
+    itemOne: "Electronics",
+    itemTwo: "Jewelery",
+    itemThree: "Women's clothing",
+    itemFour: "Men's clothing",
+  },
+  {
+    id: 2,
+    title: "Top Searches",
+    itemOne: "Jacket",
+    itemTwo: "Acer",
+    itemThree: "Hard Drive",
+    itemFour: "Gold",
+  },
+  {
+    id: 3,
+    title: "Contact us",
+    itemOne: "9832374322",
+    itemTwo: "Onlineshop@gmail.com",
+    itemThree: "OnlineShop/tiktok.com",
+    itemFour: "instagram/Onlineshop12",
+  },
+];
 
-const Footer = (props: Props) => {
+const Footer = () => {
   return (
-    <footer className="flex flex-col px-5 gap-5 bg-slate-100 py-5 ">
-      <div className="flex gap-5 justify-around flex-wrap">
-        <div className="">
-          <h1 className="text-md font-semibold ">Categories</h1>
-          <ul className="list-disc text-sm ">
-            <li>Electronics</li>
-            <li>Jewelery</li>
-            <li>Women&apos;s clothing</li>
-            <li>Men&apos;s clothing</li>
-          </ul>
-        </div>
-        <div className="">
-          <h1 className="text-md font-semibold ">Top Searches</h1>
-          <ul className="list-disc text-sm ">
-            <li>Jacket</li>
-            <li>Acer</li>
-            <li>Hard Drive</li>
-            <li>Gold</li>
-          </ul>
-        </div>
-        <div className="">
-          <h1 className="text-md font-semibold">Contact us</h1>
-          <ul className="list-disc text-sm ">
-            <li>9832374322</li>
-            <li>Onlineshop@gmail.com</li>
-            <li>OnlineShop/tiktok.com</li>
-          </ul>
-        </div>
+    <footer className="flex flex-col px-5 gap-5 bg-slate-100 py-8 ">
+      <div className="flex gap-5 flex-col md:flex-row px-5 col-1 md:justify-around md:flex-wrap">
+        {footerData.map((item) => {
+          return (
+            <div key={item.id}>
+              <h1 className="text-md font-semibold mb-1"> {item.title} </h1>
+              <ul className=" text-sm ">
+                <li>{item.itemOne}</li>
+                <li>{item.itemTwo}</li>
+                <li>{item.itemThree}</li>
+                <li>{item.itemFour} </li>
+              </ul>
+            </div>
+          );
+        })}
       </div>
-      <div className="flex justify-center flex-col items-center font-sans cursor-pointer">
-        <div className="text-xs font-semibold">
+      <div className="flex justify-center flex-col-reverse mt-2 gap-1 ml-5  md:items-center font-sans cursor-pointer">
+        <div className="text-sm font-semibold">
           copyright&copy;2023|onlinestore.com
         </div>
         <div className=" text-sm font-semibold ">
