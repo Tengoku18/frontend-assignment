@@ -1,4 +1,8 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
+import { toast } from "react-toastify";
+
+const AddToast = () => toast("Item added to cart successfully!");
+const DeleteToast = () => toast("Item removed from cart successfully!");
 
 export interface shopState {
   cart: Array<ProductDetail>;
@@ -35,13 +39,21 @@ export const shopSlice = createSlice({
       const tempProduct = state.products.find(({ id }) => id === productId);
       if (tempProduct) {
         state.cart.push(tempProduct);
+        AddToast();
         console.log("initial cart", state.cart, productId, tempProduct);
       }
+    },
+    deleteItem: (state, action: PayloadAction<number>) => {
+      const ProductId = action.payload;
+      const newCart = state.cart.filter((item) => item.id !== ProductId);
+      state.cart = newCart;
+      DeleteToast();
     },
   },
 });
 
 // Action creators are generated for each case reducer function
-export const { setProducts, searchProducts, addToCart } = shopSlice.actions;
+export const { setProducts, searchProducts, addToCart, deleteItem } =
+  shopSlice.actions;
 
 export default shopSlice.reducer;

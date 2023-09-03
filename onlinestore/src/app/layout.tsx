@@ -5,13 +5,9 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { Provider } from "react-redux";
 import { store } from "@/redux/storage/store";
-import {
-  useQuery,
-  useMutation,
-  useQueryClient,
-  QueryClient,
-  QueryClientProvider,
-} from "@tanstack/react-query";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
@@ -33,6 +29,7 @@ export default function RootLayout({
       <QueryClientProvider client={queryClient}>
         <Provider store={store}>
           <body className={inter.className}>
+            <ToastContainer />
             <div className="mx-auto max-w-6xl bg-[#FFFAFA]">
               <Navbar />
               {children}
