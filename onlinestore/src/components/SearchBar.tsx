@@ -1,4 +1,4 @@
-import { searchProduct } from "@/redux/shop/shopSlice";
+import { searchProducts } from "@/redux/shop/shopSlice";
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Link from "next/link";
@@ -46,7 +46,7 @@ const SearchBar = () => {
             onClick={(e) => {
               // e.preventDefault();
               //@ts-ignore
-              dispatch(searchProduct(query));
+              dispatch(searchProducts(query));
             }}
             type="submit"
             className="text-white absolute right-1.5 bottom-1.5 bg-blue-700 hover:bg-blue-800  focus:outline-none  font-medium rounded-full text-sm px-4 py-2 "

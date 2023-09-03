@@ -12,7 +12,6 @@ const Page = ({ params }: any) => {
       const res = await axios.get(
         `https://fakestoreapi.com/products/${params.id}`
       );
-      console.log("products is", res.data);
       return res.data;
     } catch (e) {
       console.log("Error occured!!");
