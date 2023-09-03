@@ -3,6 +3,7 @@ import { toast } from "react-toastify";
 
 const AddToast = () => toast("Item added to cart successfully!");
 const DeleteToast = () => toast("Item removed from cart successfully!");
+const DuplicateToast = () => toast("This item already exists inside cart!");
 
 export interface shopState {
   cart: Array<ProductDetail>;
@@ -22,13 +23,11 @@ export const shopSlice = createSlice({
   reducers: {
     searchProducts: (state, action: PayloadAction<string>) => {
       const allProducts = state.products;
-      console.log(action.payload);
       const filtered = allProducts.filter((item) => {
         if (item.title.toLowerCase().includes(action.payload)) {
           return item;
         }
       });
-      console.log("filtered happen", filtered);
       state.searchProduct = filtered;
     },
     setProducts: (state, action: PayloadAction<Array<ProductDetail>>) => {
@@ -36,11 +35,15 @@ export const shopSlice = createSlice({
     },
     addToCart: (state, action: PayloadAction<number>) => {
       const productId = action.payload;
-      const tempProduct = state.products.find(({ id }) => id === productId);
-      if (tempProduct) {
-        state.cart.push(tempProduct);
-        AddToast();
-        console.log("initial cart", state.cart, productId, tempProduct);
+      const duplicate = state.cart?.find(({ id }) => id === productId);
+      if (duplicate) {
+        DuplicateToast();
+      } else {
+        const tempProduct = state.products.find(({ id }) => id === productId);
+        if (tempProduct) {
+          state.cart.push(tempProduct);
+          AddToast();
+        }
       }
     },
     deleteItem: (state, action: PayloadAction<number>) => {

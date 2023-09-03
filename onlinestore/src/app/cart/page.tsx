@@ -56,7 +56,7 @@ const Page = () => {
       ) : (
         <div className="w-full min-h-screen flex flex-col gap-3 justify-center items-center">
           <h3 className="text-xl font-semibold"> No items on cart. </h3>
-          <Link href="/checkout">
+          <Link href="/">
             <button
               type="button"
               className=" px-3 py-2 bg-black text-white rounded-md hover:text-black hover:bg-white"
