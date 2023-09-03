@@ -3,7 +3,7 @@ import React from "react";
 
 const page = () => {
   return (
-    <div className="min-h-screen flex gap-3 justify-center flex-col items-center">
+    <div className="min-h-screen flex gap-3 px-5 justify-center flex-col items-center">
       <h2 className="font-semibold text-xl">
         Sorry, Checkout feature is not available right now!!{" "}
       </h2>
