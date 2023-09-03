@@ -14,14 +14,13 @@ const Index = () => {
         <div className="grid content-center place-content-center grid-cols-auto md:grid-cols-3 gap-4">
           {searchedProduct.map((item: any, i: any) => {
             return (
-              <Link key={i} href={`/productdetails/${item.id}`}>
-                <ProductCard
-                  id={item.id}
-                  image={item.image}
-                  title={item.title}
-                  price={item.price}
-                />
-              </Link>
+              <ProductCard
+                key={i}
+                id={item.id}
+                image={item.image}
+                title={item.title}
+                price={item.price}
+              />
             );
           })}
         </div>
